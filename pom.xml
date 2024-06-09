@@ -29,7 +29,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -47,6 +46,7 @@
             <optional>true</optional>
         </dependency>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <!-- https://mvnrepository.com/artifact/io.github.encryptorcode/pluralize -->
         <dependency>
             <groupId>io.github.encryptorcode</groupId>
@@ -62,18 +62,37 @@
 =======
 >>>>>>> 57ec8d2 (feat: swagger ui configuration)
 
+=======
+>>>>>>> 1930197 (build(pom-xml): added dependencies)
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.5.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations-jakarta</artifactId>
+            <version>2.2.21</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-models-jakarta</artifactId>
+            <version>2.2.21</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.encryptorcode</groupId>
+            <artifactId>pluralize</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
+
+
+
 
     <build>
         <plugins>
