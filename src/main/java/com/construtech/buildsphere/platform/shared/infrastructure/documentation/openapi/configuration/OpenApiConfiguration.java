@@ -7,13 +7,17 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 public class OpenApiConfiguration {
+
     @Bean
-    public OpenAPI learningPlatformOpenApi() {
+    public OpenAPI customOpenAPI() {
         // General Configuration
         var openApi = new OpenAPI();
         openApi
@@ -25,21 +29,21 @@ public class OpenApiConfiguration {
                                 .url("https://www.apache.org/licenses/LICENSE-2.0.html")))
                 .externalDocs(new ExternalDocumentation()
                         .description("ProBuildX Platform Wiki Documentation")
-                        .url("https://probuildx-buildsphere-platform.wiki.github.io/docs"));
+                        .url("https://probuildx-buildsphere-platform.wiki.github.io/docs"))
 
-        // Add security scheme
+                // Add server URL for HTTPS
+                .servers(List.of(new Server().url("https://back-end-production-10f2.up.railway.app")))
 
-        final String securitySchemeName = "bearerAuth";
-
-        openApi.addSecurityItem(new SecurityRequirement()
-                        .addList(securitySchemeName))
+                // Add security scheme
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
                 .components(new Components()
-                        .addSecuritySchemes(securitySchemeName,
+                        .addSecuritySchemes("bearerAuth",
                                 new SecurityScheme()
-                                        .name(securitySchemeName)
+                                        .name("bearerAuth")
                                         .type(SecurityScheme.Type.HTTP)
                                         .scheme("bearer")
                                         .bearerFormat("JWT")));
+
         return openApi;
     }
 }
